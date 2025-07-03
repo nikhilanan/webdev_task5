@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartCart - eCommerce Website</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+  <section id="welcomeScreen" class="screen active">
+    <h1>Welcome to SmartCart</h1>
+    <button onclick="goToLogin()">Get Started</button>
+  </section>
+
+  
+  <section id="loginScreen" class="screen">
+    <form onsubmit="return loginUser()">
+      <h2>Sign In</h2>
+      <input type="text" id="username" placeholder="Enter username" required /><br/>
+      <input type="password" id="password" placeholder="Enter password" required /><br/>
+      <button type="submit">Login</button>
+    </form>
+  </section>
+
+
+  <div id="appScreen" style="display: none;">
+    <header>SmartCart - eCommerce Website</header>
+    <nav>
+      <a href="#" onclick="toggleSection('products')">Home</a>
+      <a href="#" onclick="toggleSection('products')">Products</a>
+      <a href="#" onclick="toggleSection('cart')">Cart (<span id="cartCount">0</span>)</a>
+      <select id="categorySelect" onchange="filterByCategory(this.value)">
+        <option value="all">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Fashion">Fashion</option>
+      </select>
+    </nav>
+
+    <main class="products" id="productList"></main>
+
+    <section id="cartSection" style="display: none;">
+      <h2>Your Cart</h2>
+      <div id="cartItems" class="cart-items"></div>
+      <div id="cartTotal" style="margin-top: 20px; font-size: 1.1rem; font-weight: bold; color: #00796b;"></div>
+    </section>
+
+    <footer>&copy; 2025 SmartCart. All rights reserved.</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
